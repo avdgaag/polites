@@ -1,0 +1,93 @@
+<sheet version="6" app_version="21.1">
+<markup version="1" identifier="markdownxl" displayName="Markdown XL">
+	<tag definition="heading1" pattern="#"></tag>
+	<tag definition="heading2" pattern="##"></tag>
+	<tag definition="heading3" pattern="###"></tag>
+	<tag definition="heading4" pattern="####"></tag>
+	<tag definition="heading5" pattern="#####"></tag>
+	<tag definition="heading6" pattern="######"></tag>
+	<tag definition="codeblock" pattern="''"></tag>
+	<tag definition="codeblock" pattern="``"></tag>
+	<tag definition="comment" pattern="%%"></tag>
+	<tag definition="nativeblock" pattern="~~"></tag>
+	<tag definition="blockquote" pattern="&gt;"></tag>
+	<tag definition="orderedList" pattern="\d."></tag>
+	<tag definition="unorderedList" pattern="*"></tag>
+	<tag definition="unorderedList" pattern="+"></tag>
+	<tag definition="unorderedList" pattern="-"></tag>
+	<tag definition="divider" pattern="----"></tag>
+	<tag definition="filename" pattern="@:"></tag>
+	<tag definition="code" startPattern="`" endPattern="`"></tag>
+	<tag definition="delete" startPattern="||" endPattern="||"></tag>
+	<tag definition="emph" startPattern="*" endPattern="*"></tag>
+	<tag definition="emph" startPattern="_" endPattern="_"></tag>
+	<tag definition="inlineComment" startPattern="++" endPattern="++"></tag>
+	<tag definition="inlineNative" startPattern="~" endPattern="~"></tag>
+	<tag definition="mark" startPattern="::" endPattern="::"></tag>
+	<tag definition="strong" startPattern="__" endPattern="__"></tag>
+	<tag definition="strong" startPattern="**" endPattern="**"></tag>
+	<tag definition="annotation" startPattern="{" endPattern="}"></tag>
+	<tag definition="link" startPattern="[" endPattern="]"></tag>
+	<tag definition="footnote" pattern="(fn)"></tag>
+	<tag definition="image" pattern="(img)"></tag>
+	<tag definition="video" pattern="(vid)"></tag>
+</markup>
+<string xml:space="preserve">
+<p><tags><tag kind="heading1"># </tag></tags>How to live with purpose using goals and tasks!</p>
+<p></p>
+<p>Do you like ever shuffling on in an endless grind of stuff to do, emails to answer and yet another new project? Neither do I. I want to live with purpose and values, rather than have an email inbox as a publicly-writable to do list, just because that is “just how it works”. And there’s a relatively simple way to bring more purpose into daily work: recurring checklists for review, plan and reflect.</p>
+<p></p>
+<p>If you’re anything like me, you use an application for tracking to do-lists. These are great for actionable tasks and getting things done. My favourite is <element kind="link"><attribute identifier="URL">https://culturedcode.com/things/</attribute><attribute identifier="title">A title</attribute>Things</element>. I also use a journal for, among other things, reflection on personal development and life goals. <element kind="link"><attribute identifier="URL">https://gettingthingsdone.com</attribute>David Allen</element> calls these the <element kind="emph" startTag="_" endTag="_">runway actions</element> and <element kind="emph" startTag="_" endTag="_">50,000ft horizon of focus</element>, respectively. To live more deliberately, <element kind="annotation"><attribute identifier="text"><string xml:space="preserve">
+<p>Here is an annotation</p>
+</string></attribute>align these two</element>.</p>
+<p></p>
+<p><tags><tag kind="heading2">## </tag></tags>Aligning horizons of focus</p>
+<p></p>
+<p>What are practical steps to feed our purpose, values and goals into our day-to-day to do-list? Assuming clarity of purpose and values, this is how I do it:</p>
+<p></p>
+<p><tags><tag kind="orderedList">1. </tag></tags><element kind="strong" startTag="**" endTag="**">Quarterly goals</element>: every quarter, I review my purpose, value and life balance; from that I write one to three goals for the next three months.</p>
+<p><tags><tag kind="orderedList">2. </tag></tags><element kind="strong" startTag="**" endTag="**">Weekly review</element>: every week, on Monday morning I do a weekly review to capture open loops, clean up my to do lists and set weekly goals.</p>
+<p><tags><tag kind="orderedList">3. </tag></tags><element kind="strong" startTag="**" endTag="**">Daily check-in</element>: every morning I review my tasks for the day and set one to three daily goals.</p>
+<p><tags><tag kind="orderedList">4. </tag></tags><element kind="strong" startTag="**" endTag="**">Daily check-out</element>: every afternoon before I leave work, I review my progress and migrate any open tasks to the next day. As they say, tomorrow begins today.</p>
+<p></p>
+<p><tags><tag kind="heading2">## </tag></tags>Increasing the odds of success</p>
+<p></p>
+<p>None of these steps are particularly hard to do, but they consume creative energy. Between cute cat pictures on the internet and unread messages in your inbox, <element kind="footnote"><attribute identifier="text"><string xml:space="preserve">
+<p>My footnote goes here. <element kind="strong" startTag="**" endTag="**">With some</element> markup!</p>
+</string></attribute></element></p>
+<p></p>
+<p><tags><tag kind="blockquote">&gt; </tag></tags>In order to do what’s right instead of what is convenient, we need all the help we can get. Here’s how I use Things to support this process:</p>
+<p></p>
+<p><tags><tag kind="unorderedList">* </tag></tags>I have set up recurring tasks for all these events. This ensures they’re just another thing to do on any given day.</p>
+<p><tags><tag>	</tag><tag kind="orderedList">1. </tag></tags>Sub item 1</p>
+<p><tags><tag>	</tag><tag>	</tag><tag kind="unorderedList">- </tag></tags>foo</p>
+<p><tags><tag>	</tag><tag kind="orderedList">2. </tag></tags>Sub item 2</p>
+<p><tags><tag kind="unorderedList">* </tag></tags>These recurring tasks have reminders set for the start or end of the day, so I am reminded about them when I come into work or am about to leave.</p>
+<p><tags><tag kind="unorderedList">* </tag></tags>The tasks contain checklists to make it remove as much friction as possible.</p>
+<p><tags><tag kind="unorderedList">* </tag></tags>I use tags to track particularly simple, low-energy tasks and bigger, focus-required tasks.</p>
+<p></p>
+<p><element kind="image"><attribute identifier="image">a661ad9286514e1195b8c277fa1ea5c7</attribute><attribute identifier="filename">explicit-filename.png</attribute><attribute identifier="title">Image title</attribute><attribute identifier="description">A recurring checklist task in Things.</attribute><attribute identifier="size"><size width="300" height="200"></size></attribute></element></p>
+<p></p>
+<p><tags><tag kind="heading2">## </tag></tags>The routine</p>
+<p></p>
+<p>On Monday <element kind="mark" startTag="::" endTag="::">morning</element> I am <element kind="delete" startTag="||" endTag="||">prompted</element> to do a <element kind="code" startTag="`" endTag="`">weekly</element> review. I follow the check list to capture open loops, groom my to do-list and set weekly goals based on my quarterly goals and last week’s progress.</p>
+<p></p>
+<p><tags><tag kind="divider">---- </tag></tags></p>
+<p></p>
+<p><tags><tag kind="codeblock">￼</tag></tags><attribute identifier="syntax">elixir</attribute>Every other morning of the week, I am reminded to plan my day by picking one to three major tasks to complete and some minor, low-energy stuff. Every afternoon before I leave the office, I am triggered to reflect on my progress and prepare for tomorrow.</p>
+<p></p>
+<p>Every quarter, I’m reminded to review last quarter’s results and come up with new goals for the upcoming quarter. My journal contains my purpose and values and a bunch of personal trackers, making it easy to think about the upcoming months in terms of what I want to do, rather than what the world has put on my plate.</p>
+<p></p>
+<p><tags><tag kind="heading2">## </tag></tags>Use tools and events to live purposefully</p>
+<p></p>
+<p>I use Things to set recurring tasks with reminders and checklists to support a process of regular reflection and planning with my journal based on daily, weekly and quarterly goals. I’ve been using this system for a while now and it has given me a real sense of agency and tranquility. Give it a try and see what works for you.</p>
+</string>
+<attachment type="keywords">GTD,Stoicism</attachment>
+<attachment type="file">1a3577ba004942ecb71d8a940cab4b1f</attachment>
+<attachment type="file">5d3baf430fd948a9bbcaad5843ce2132</attachment>
+<attachment type="note"><string xml:space="preserve">
+<p>Some notes can go there. And <element kind="strong" startTag="**" endTag="**">we</element> can <element kind="emph" startTag="_" endTag="_">add</element></p>
+<p></p>
+<p>Even more!</p>
+</string></attachment>
+</sheet>

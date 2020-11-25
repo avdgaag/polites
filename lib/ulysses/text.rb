@@ -1,0 +1,15 @@
+module Ulysses
+  class Text
+    attr_reader :text
+    protected :text
+
+    def initialize(text)
+      @text = text
+    end
+
+    def eql?(other)
+      other.is_a?(self.class) && text == other.text
+    end
+    alias == eql?
+  end
+end
