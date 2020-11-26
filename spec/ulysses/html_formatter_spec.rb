@@ -29,7 +29,7 @@ module Ulysses
           Block::Paragraph.new([Text.new('text1')]),
           Block::Paragraph.new([Text.new('text2')])
         ]
-        expect(html_formatter.call(content)).to eql("<p>text1</p>\n<p>text2</p>")
+        expect(html_formatter.call(content)).to eql('<p>text1</p><p>text2</p>')
       end
 
       it 'formats nested content' do
@@ -49,7 +49,7 @@ module Ulysses
           Block::OrderedList.new([Text.new('text5')], 0),
           Block::Paragraph.new([Text.new('text')])
         ]
-        expect(html_formatter.call(content)).to eql(<<~STR.chomp)
+        expect(html_formatter.call(content, indent: true, join: "\n")).to eql(<<~STR.chomp)
           <p>text</p>
           <ol>
           <li>text1
