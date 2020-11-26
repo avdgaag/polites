@@ -1,7 +1,6 @@
 module Ulysses
   class Text
     attr_reader :text
-    protected :text
 
     def initialize(text)
       @text = text

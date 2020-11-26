@@ -1,7 +1,6 @@
 module Ulysses
   class Node
     attr_reader :children
-    protected :children
 
     def initialize(children = [])
       @children = children
