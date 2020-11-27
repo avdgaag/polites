@@ -1,9 +1,15 @@
 require 'ulysses/span'
+require 'ulysses/text'
 
 module Ulysses
   RSpec.describe Span do
     it 'considers two blocks with the same content equal' do
       expect(Span.new).to eql(Span.new)
+    end
+
+    it 'extracts text value from its children' do
+      expect(Span::Strong.new([]).text).to be_empty
+      expect(Span::Strong.new([Text.new('hello')]).text).to eql('hello')
     end
 
     describe '.build' do

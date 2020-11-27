@@ -6,6 +6,11 @@ module Ulysses
       expect(Block.new).to eql(Block.new)
     end
 
+    it 'extracts text value from its children' do
+      expect(Block::Paragraph.new([]).text).to be_empty
+      expect(Block::Paragraph.new([Text.new('hello')]).text).to eql('hello')
+    end
+
     describe '.build' do
       it 'builds a Heading1' do
         expect(Block.build([], kind: 'heading1')).to eql(Block::Heading1.new)

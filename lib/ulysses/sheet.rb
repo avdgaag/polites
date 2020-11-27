@@ -11,5 +11,12 @@ module Ulysses
       @files = files
       @notes = notes
     end
+
+    def title
+      first_heading = content.find { |block| block.is_a?(Block::Heading) }
+      return unless first_heading
+
+      first_heading.text
+    end
   end
 end

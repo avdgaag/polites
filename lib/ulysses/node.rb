@@ -6,6 +6,10 @@ module Ulysses
       @children = children
     end
 
+    def text
+      @children.map(&:text).join
+    end
+
     def eql?(other)
       other.is_a?(self.class) && children.eql?(other.children)
     end
