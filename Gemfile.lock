@@ -3,6 +3,7 @@ PATH
   specs:
     ulysses (0.1.0)
       nokogiri
+      rubyzip
 
 GEM
   remote: https://rubygems.org/
@@ -44,6 +45,7 @@ GEM
     rubocop-ast (1.1.1)
       parser (>= 2.7.1.5)
     ruby-progressbar (1.10.1)
+    rubyzip (2.3.0)
     unicode-display_width (1.7.0)
 
 PLATFORMS

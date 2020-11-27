@@ -2,35 +2,9 @@ require_relative './block'
 require_relative './span'
 require_relative './text'
 require_relative './sheet'
+require_relative './list_indenter'
 
 module Ulysses
-  class ListIndenter
-    List = Struct.new(:children)
-
-    def call(items)
-      items
-        .chunk { |i| i.is_a?(Block::List) }.to_a
-        .inject([]) do |acc, (k, contents)|
-        acc + (k ? [List.new(indent(contents))] : contents)
-      end
-    end
-
-    private
-
-    def indent(items)
-      items
-        .chunk { |item| item.level > items.first.level }
-        .inject([]) do |acc, (indented, subitems)|
-        if indented
-          acc.last.children << List.new(indent(subitems))
-          acc
-        else
-          acc + subitems
-        end
-      end
-    end
-  end
-
   class HtmlFormatter
     NL = "\n".freeze
 
@@ -111,6 +85,7 @@ module Ulysses
 
     def footnotes
       @footnotes
+        .compact
         .each_with_index
         .map { |obj, i| '  ' + tag(:li, call(obj), id: "fn#{i + 1}") }
         .join(NL)

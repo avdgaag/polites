@@ -3,7 +3,7 @@ require 'ulysses/parser'
 module Ulysses
   RSpec.describe Parser do
     before(:all) do
-      @content = File.read('spec/fixtures/content.xml')
+      @content = ::File.read('spec/fixtures/content.xml')
     end
 
     let(:content) { @content }
