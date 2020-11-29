@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ulysses
   class Node
     attr_reader :children

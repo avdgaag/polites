@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ulysses/html_formatter'
 
 module Ulysses

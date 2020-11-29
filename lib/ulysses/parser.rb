@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 require_relative './block'
 require_relative './text'
@@ -124,7 +126,7 @@ module Ulysses
     def parse_files(element)
       element
         .xpath('./attachment[@type="file"]')
-        .map { |el| el.text }
+        .map(&:text)
     end
 
     def parse_notes(element)

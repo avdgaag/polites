@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../../lib/ulysses/file'
 
 module Ulysses
@@ -9,11 +11,11 @@ module Ulysses
     end
 
     it 'raises when reading non-existant file' do
-      expect { File.open('bla') { |f| f.content } }.to raise_error(Errno::ENOENT)
+      expect { File.open('bla', &:content) }.to raise_error(Errno::ENOENT)
     end
 
     it 'reads the content.xml file' do
-      expect(File.open('spec/fixtures/How to live with purpose using goals and tasks!.ulyz') { |f| f.content }).not_to be_empty
+      expect(File.open('spec/fixtures/How to live with purpose using goals and tasks!.ulyz', &:content)).not_to be_empty
     end
 
     context '#media' do

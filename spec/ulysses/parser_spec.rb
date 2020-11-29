@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ulysses/parser'
 
 module Ulysses

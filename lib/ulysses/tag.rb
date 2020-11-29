@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ulysses
   class Tag
     attr_reader :name

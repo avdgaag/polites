@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ulysses
   # Modify the AST for a parsed sheet to group list items in a nested structure,
   # rather than a flat structure using levels.

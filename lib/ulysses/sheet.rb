@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ulysses
   class Sheet
     attr_reader :version, :app_version, :markup, :content, :keywords, :files, :notes

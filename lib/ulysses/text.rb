@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ulysses
   class Text
     attr_reader :text

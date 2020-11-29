@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './block'
 require_relative './span'
 require_relative './text'
@@ -6,7 +8,7 @@ require_relative './list_indenter'
 
 module Ulysses
   class HtmlFormatter
-    NL = "\n".freeze
+    NL = "\n"
 
     def initialize
       @footnotes = []
@@ -21,7 +23,7 @@ module Ulysses
           tag(:ol, NL + footnotes + NL, id: 'footnotes') +
           NL
       when ListIndenter::List
-        nl = obj.children.first.level > 0 ? NL : ''
+        nl = obj.children.first.level.positive? ? NL : ''
         tag_name = case obj.children.first
                    when Block::OrderedList then 'ol'
                    when Block::UnorderedList then 'ul'
@@ -90,7 +92,7 @@ module Ulysses
       @footnotes
         .compact
         .each_with_index
-        .map { |obj, i| '  ' + tag(:li, call(obj), id: "fn#{i + 1}") }
+        .map { |obj, i| "  #{tag(:li, call(obj), id: "fn#{i + 1}")}" }
         .join(NL)
     end
 

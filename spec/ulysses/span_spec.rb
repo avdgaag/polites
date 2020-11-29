@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ulysses/span'
 require 'ulysses/text'
 

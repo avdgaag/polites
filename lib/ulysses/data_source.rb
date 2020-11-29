@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pathname'
 require_relative './settings'
 require_relative './parser'
@@ -55,7 +57,7 @@ module Ulysses
 
     def build_file_item(entry, id, input_file, filename = nil)
       p = filename ? Pathname(filename) : Pathname(entry.name).basename
-      i = identifier(input_file) + '/media' + identifier(p, p.extname)
+      i = "#{identifier(input_file)}/media#{identifier(p, p.extname)}"
       new_item(
         input_file.expand_path.to_s,
         {
@@ -70,11 +72,11 @@ module Ulysses
     end
 
     def identifier(path, extension = '.ulyz')
-      '/' + path
+      "/#{path
             .relative_path_from(@root)
             .basename(extension)
             .to_s
-            .then { |s| underscore(s) } + extension
+            .then { |s| underscore(s) }}#{extension}"
     end
 
     def underscore(str)

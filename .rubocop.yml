@@ -10,3 +10,6 @@
 # See https://docs.rubocop.org/rubocop/configuration
 AllCops:
   NewCops: enable
+
+Style/ClassAndModuleChildren:
+  Enabled: false

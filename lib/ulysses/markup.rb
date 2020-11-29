@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Ulysses
   class Markup
     attr_reader :version, :identifier, :display_name, :tags
