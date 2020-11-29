@@ -13,10 +13,35 @@ module Ulysses
     end
 
     def title
-      first_heading = content.find { |block| block.is_a?(Block::Heading) }
-      return unless first_heading
+      @title ||= first_heading&.text
+    end
 
-      first_heading.text
+    def drop_title
+      content.delete first_heading
+    end
+
+    def drop_empty_paragraphs
+      content.reject! do |block|
+        block.is_a?(Block::Paragraph) && block.children.empty?
+      end
+    end
+
+    def inline_files
+      content.flat_map do |node|
+        node.children.grep(Span::Image)
+      end
+    end
+
+    def attached_files
+      files - inline_files.map(&:image)
+    end
+
+    private
+
+    def first_heading
+      content.find do |block|
+        block.is_a?(Block::Heading)
+      end
     end
   end
 end

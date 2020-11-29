@@ -1,7 +1,11 @@
 module Ulysses
+  # Modify the AST for a parsed sheet to group list items in a nested structure,
+  # rather than a flat structure using levels.
   class ListIndenter
     List = Struct.new(:children)
 
+    # @param [Array<Ulysses::Node>] items
+    # @return [Array<Ulysses::Node>]
     def call(items)
       items
         .chunk { |i| i.is_a?(Block::List) }.to_a

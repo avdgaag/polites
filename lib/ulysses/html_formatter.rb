@@ -1,8 +1,8 @@
-require_relative './block'
-require_relative './span'
-require_relative './text'
-require_relative './sheet'
-require_relative './list_indenter'
+require_relative "./block"
+require_relative "./span"
+require_relative "./text"
+require_relative "./sheet"
+require_relative "./list_indenter"
 
 module Ulysses
   class HtmlFormatter
@@ -13,19 +13,18 @@ module Ulysses
       @indenter = ListIndenter.new
     end
 
-    def call(obj, indent: false, join: '')
+    def call(obj, indent: false, join: "")
       case obj
       when Sheet
         call(obj.content, indent: true, join: NL) +
           NL +
-          tag(:ol, NL + footnotes + NL, id: 'footnotes') +
+          tag(:ol, NL + footnotes + NL, id: "footnotes") +
           NL
       when ListIndenter::List
-        nl = obj.children.first.level > 0 ? NL : ''
-        tag_name =
-          case obj.children.first
-          when Block::OrderedList then 'ol'
-          when Block::UnorderedList then 'ul'
+        nl = obj.children.first.level > 0 ? NL : ""
+        tag_name = case obj.children.first
+          when Block::OrderedList then "ol"
+          when Block::UnorderedList then "ul"
           end
         nl + tag(tag_name, NL + call(obj.children, join: NL) + NL) + nl
       when Array
@@ -68,10 +67,10 @@ module Ulysses
       when Span::Footnote
         @footnotes << obj.text
         n = @footnotes.count
-        tag(:sup, tag(:a, n, id: "ffn#{n}", href: "#fn#{n}", class: 'footnote'))
+        tag(:sup, tag(:a, n, id: "ffn#{n}", href: "#fn#{n}", class: "footnote"))
       when Span::Image
-        figcaption = obj.description ? tag(:figcaption, obj.description) : ''
-        tag(:figure, tag(:img, nil, src: obj.filename || obj.image, title: obj.title, alt: obj.description, width: obj.width, height: obj.height) + figcaption)
+        figcaption = obj.description ? tag(:figcaption, obj.description) : ""
+        tag(:figure, tag(:img, nil, src: image_src(obj), title: obj.title, alt: obj.description, width: obj.width, height: obj.height) + figcaption)
       when Span::Link
         tag(:a, call(obj.children), href: obj.url, title: obj.title)
       when Text
@@ -83,16 +82,20 @@ module Ulysses
 
     private
 
+    def image_src(image_element)
+      image_element.filename || image_element.image
+    end
+
     def footnotes
       @footnotes
         .compact
         .each_with_index
-        .map { |obj, i| '  ' + tag(:li, call(obj), id: "fn#{i + 1}") }
+        .map { |obj, i| "  " + tag(:li, call(obj), id: "fn#{i + 1}") }
         .join(NL)
     end
 
     def tag(name, content = nil, attributes = {})
-      html_attributes = attributes.compact.inject('') do |acc, (key, value)|
+      html_attributes = attributes.compact.inject("") do |acc, (key, value)|
         acc + %( #{key}="#{value}")
       end
       case name

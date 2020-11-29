@@ -1,0 +1,46 @@
+* Inbox
+** DONE Use Open3.capture2 to read stdout
+      json =
+        Open3.popen2("plutil -convert json -o - #{@path}") do |_, output, _|
+          output.read
+        end
+        
+[[file:~/code/ulysses/lib/ulysses/plist.rb::json =
+ Open3.popen2("plutil -convert json -o - #{@path}") do |_, output, _|
+ output.read
+ end]]
+** DONE Add specs for Plist
+
+[[file:~/code/ulysses/lib/ulysses/plist.rb::module Ulysses]]
+** DONE Add spcs for settings
+
+[[file:~/code/ulysses/lib/ulysses/settings.rb::all_settings = path.glob('.*.plist').inject do |settings, filename|]]
+** DONE Add the ability to drop the first header title
+        sheet = @parser.parse(input_file)
+
+[[file:~/code/ulysses/lib/ulysses/data_source.rb::sheet = @parser.parse(input_file)]]
+** TODO Remove dropping title and empty paragraphs
+
+replace with nokogiri manipulation in Nanoc
+** DONE Extract attachments as items in the data source
+
+[[file:~/code/ulysses/lib/ulysses/data_source.rb::def items]]
+
+* Someday/maybe
+** TODO Use the group settings to deal with the file extensions
+            .basename('.ulyz')
+            .to_s
+            .gsub(/[^a-zA-Z0-9\-_]/, '-')
+            .squeeze('-')
+            .gsub(/^-*|-*$/, '')
+            .downcase + '.ulyz'
+
+[[file:~/code/ulysses/lib/ulysses/data_source.rb::.basename('.ulyz')
+ .to_s
+ .gsub(/\[^a-zA-Z0-9\-_\]/, '-')
+ .squeeze('-')
+ .gsub(/^-*|-*$/, '')
+ .downcase + '.ulyz']]
+** TODO Use the group settings to find the right files in a directory
+
+[[file:~/code/ulysses/lib/ulysses/data_source.rb::@input_files = @root.glob('*.ulyz')]]
