@@ -1,4 +1,4 @@
-require_relative "./plist"
+require_relative './plist'
 
 module Ulysses
   class Settings
@@ -9,7 +9,7 @@ module Ulysses
     # @return [Ulysses::Settings]
     def self.from_directory(path)
       Pathname(path)
-        .glob(".*.plist")
+        .glob('.*.plist')
         .inject({}) { |s, f| s.merge Plist.new(f).to_h }
         .then { |s| new(s) }
     end

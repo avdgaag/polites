@@ -1,4 +1,4 @@
-require_relative "./file"
+require_relative './file'
 
 module Ulysses
   # Nanoc binary filter to extract files from a zip file to a given output file.
@@ -8,7 +8,7 @@ module Ulysses
     identifier :extract_file
     type :binary
 
-    def run(filename, params = {})
+    def run(filename, _params = {})
       File.open(filename) do |f|
         f.extract_to(@item[:subpath], output_filename)
       end

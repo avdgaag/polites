@@ -1,5 +1,5 @@
-require "open3"
-require "json"
+require 'open3'
+require 'json'
 
 module Ulysses
   # Read macos binary .plist files into a Hash by converting them to JSON format

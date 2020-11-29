@@ -1,6 +1,6 @@
-require_relative "./parser"
-require_relative "./html_formatter"
-require_relative "./file"
+require_relative './parser'
+require_relative './html_formatter'
+require_relative './file'
 
 module Ulysses
   # Convert a Ulysses file to another format.
@@ -19,8 +19,8 @@ module Ulysses
     def call(filename)
       File.open(filename) do |f|
         f.content
-          .then { |c| @parser.parse_sheet(c) }
-          .then { |c| @formatter.call(c) }
+         .then { |c| @parser.parse_sheet(c) }
+         .then { |c| @formatter.call(c) }
       end
     end
   end

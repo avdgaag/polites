@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "zip"
+require 'zip'
 
 module Ulysses
   # A `Ulysses::File` represents a file saved to disk by Ulysses with a `.ulyz`
@@ -43,7 +43,7 @@ module Ulysses
     #
     # @return [String] the XML contents of the file.
     def content
-      @zip_file.glob("**/Content.xml").first.get_input_stream.read
+      @zip_file.glob('**/Content.xml').first.get_input_stream.read
     end
 
     # Get a zip entry for a media file with a particular fingerprint substring
