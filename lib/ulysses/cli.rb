@@ -7,6 +7,9 @@ require_relative './version'
 module Ulysses
   # Provides the implentation of the command-line interface, exposing functions
   # to be called from a shell or other programs.
+  #
+  # @example
+  #   Cli.new(stdin: $stdin, $stdout: stdout).call(ARGV)
   class Cli
     # @param [IO] stdin to read input from
     # @param [IO] stdout to write output to

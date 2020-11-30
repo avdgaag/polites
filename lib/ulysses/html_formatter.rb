@@ -7,6 +7,9 @@ require_relative './sheet'
 require_relative './list_indenter'
 
 module Ulysses
+  # Takes an AST as produced by {Parser} and generates HTML output from it.
+  # This output is not guaranteed to be the exact same as Ulysses would produce
+  # itself, but it should be structurally similar.
   class HtmlFormatter
     NL = "\n"
 
@@ -15,6 +18,12 @@ module Ulysses
       @indenter = ListIndenter.new
     end
 
+    # Apply formatting to the given AST.
+    #
+    # @param [Object] obj
+    # @param [Bool] indent whether to apply indentation when formatting. Used internally.
+    # @param [String] join how to join multiple elements together. Used internally.
+    # @return [String]
     def call(obj, indent: false, join: '')
       case obj
       when Sheet
@@ -78,7 +87,7 @@ module Ulysses
       when Text
         obj.text
       else
-        raise "Unknown obj #{obj.inspect}"
+        raise FormattingError, "Unknown obj #{obj.inspect}"
       end
     end
 

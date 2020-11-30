@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'nokogiri'
+require_relative '../ulysses'
 require_relative './block'
 require_relative './text'
 require_relative './span'
@@ -10,11 +11,18 @@ require_relative './simple_tag'
 require_relative './range_tag'
 
 module Ulysses
+  # The parser takes XML content from a Ulysses file and parses it into our own
+  # abstract syntax tree built from {Node} elements. This can then be modified
+  # and formatted into the desired output.
   class Parser
     def initialize
       reset
     end
 
+    # Parse an entire sheet of content, including all its structural elements.
+    #
+    # @param [String] source
+    # @return [Sheet]
     def parse_sheet(source)
       sheet = Nokogiri(source).xpath('/sheet').first
       Sheet.new(
@@ -28,6 +36,10 @@ module Ulysses
       )
     end
 
+    # Parse just the markup section of a sheet into a {Markup} container.
+    #
+    # @param [Nokogiri::Node] element
+    # @return [Markup]
     def parse_markup(element)
       markup = element.xpath('markup').first
       tags = markup.xpath('tag').map do |e|
@@ -40,19 +52,30 @@ module Ulysses
       Markup.new(markup[:version], markup[:identifier], markup[:displayName], tags)
     end
 
+    # Parse a content fragment, which consists of multiple source elements but
+    # not necessarily an entire sheet.
+    #
+    # @param [String] source
+    # @return [Array<Node>]
     def parse_fragment(source)
-      element =
-        case source
-        when Nokogiri::XML::Element
-          source
-        when String
-          Nokogiri(source)
-        end
+      element = case source
+                when Nokogiri::XML::Element
+                  source
+                when String
+                  Nokogiri(source)
+                end
       element.xpath('string/p').map do |el|
         parse(el)
       end
     end
 
+    # Parse a unit into our AST. This will deal with anything passed in, but
+    # to parse multiple nodes successfully or to parse and entire sheet, see
+    # {parse_fragment} and {parse_sheet}.
+    #
+    # @param [Nokogiri::Node, String] source
+    # @raise [ParseError] when given a `source` we cannot deal with.
+    # @return [Node, Array<Node>]
     def parse(source)
       case source
       when Nokogiri::XML::Element
@@ -69,7 +92,7 @@ module Ulysses
           Text.new(source)
         end
       else
-        raise "unexpected #{source.inspect}"
+        raise ParseError, "unexpected #{source.inspect}"
       end
     end
 
@@ -113,7 +136,7 @@ module Ulysses
         parse(source.children)
         nil
       else
-        raise "unknown element name #{source.name}"
+        raise ParseError, "unknown element name #{source.name}"
       end
     end
 

@@ -1,9 +1,23 @@
 # frozen_string_literal: true
 
+require_relative '../ulysses'
 require_relative './node'
 
 module Ulysses
+  # A block represents a structural element in a Ulysses document, mapping to
+  # block-level elements in HTML. Examples include paragraphs and headings.
+  #
+  # Blocks may technically  contain other blocks, as well as {Text} and {Span}
+  # elements.
   class Block < Node
+    # Build the proper kind of span from the given arguments.
+    #
+    # @param [Array<Node>] children
+    # @param [String] kind the type Ulysses has given to this node.
+    # @param [Fixnum] level the indentation level used by list items.
+    # @param [String] syntax the syntax attribute used in code blocks.
+    # @raise [ParseError] when encountering unexpected `kind`
+    # @return [Span]
     def self.build(children = [], kind: 'paragraph', level: 0, syntax: nil)
       case kind
       when 'heading1'
@@ -31,7 +45,7 @@ module Ulysses
       when 'codeblock'
         CodeBlock.new(children, syntax)
       else
-        raise "unknown block type #{kind.inspect}"
+        raise ParseError, "unknown block type #{kind.inspect}"
       end
     end
   end

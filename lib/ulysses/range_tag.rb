@@ -3,9 +3,17 @@
 require_relative './tag'
 
 module Ulysses
+  # A range tag is a {Tag} defined by a start and an end pattern, such as used
+  # by defining bold formatting.
   class RangeTag < Tag
-    attr_reader :start_pattern, :end_pattern
+    # @return [String]
+    attr_reader :start_pattern
+    # @return [String]
+    attr_reader :end_pattern
 
+    # @param [String] name
+    # @param [String] start_pattern
+    # @param [String] end_pattern
     def initialize(name, start_pattern, end_pattern)
       super(name)
       @start_pattern = start_pattern

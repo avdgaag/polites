@@ -3,6 +3,8 @@
 require_relative './plist'
 
 module Ulysses
+  # Settings is a wrapped around the combined configurations Ulysses writes to
+  # various Plist files in external directory.
   class Settings
     # Read all combined .plist files in a directory into a single data
     # structure.

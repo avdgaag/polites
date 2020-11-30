@@ -1,4 +1,14 @@
 * Inbox
+** TODO Omit footnotes wrapper when there are no footnotes
+        call(obj.content, indent: true, join: NL) +
+          NL +
+          tag(:ol, NL + footnotes + NL, id: "footnotes") +
+          NL
+
+[[file:~/code/ulysses/lib/ulysses/html_formatter.rb::call(obj.content, indent: true, join: NL) +
+ NL +
+ tag(:ol, NL + footnotes + NL, id: "footnotes") +
+ NL]]
 ** DONE Use Open3.capture2 to read stdout
       json =
         Open3.popen2("plutil -convert json -o - #{@path}") do |_, output, _|
