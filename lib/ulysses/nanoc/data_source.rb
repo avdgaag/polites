@@ -16,7 +16,8 @@ module Ulysses
       def up
         @root = Pathname(@config[:path])
         @settings = Settings.from_directory(@root)
-        @input_files = @root.glob('*.ulyz')
+        @extension = ".#{@settings['defaultPathExtensions']}"
+        @input_files = @root.glob("*#{@extension}")
         @parser = Ulysses::Parser.new
         @formatter = Ulysses::HtmlFormatter.new
       end
@@ -72,7 +73,7 @@ module Ulysses
         )
       end
 
-      def identifier(path, extension = '.ulyz')
+      def identifier(path, extension = @extension)
         "/#{path
           .relative_path_from(@root)
           .basename(extension)
