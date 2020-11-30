@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ['Arjan van der Gaag']
   spec.email = ['arjan@arjanvandergaag.nl']
 
-  spec.summary = 'Integrate the Ulysess gem with Nanoc.'
-  spec.description = 'Use Polites\' .ulyz files as a data source in static sites generated with Nanoc.'
+  spec.summary = 'Integrate the Polites gem with Nanoc.'
+  spec.description = 'Use Ulysses\' .ulyz files as a data source in static sites generated with Nanoc.'
   spec.homepage = 'https://github.com/avdgaag/polites'
   spec.license = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.4.0')

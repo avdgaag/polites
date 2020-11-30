@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ['Arjan van der Gaag']
   spec.email = ['arjan@arjanvandergaag.nl']
 
-  spec.summary = 'Work with Polites files from Ruby'
-  spec.description = 'Polites is a gem that can read Polites\' .ulyz files and transform their contents to HTML.'
+  spec.summary = 'Work with Ulysses files from Ruby'
+  spec.description = 'Polites is a gem that can read Ulysses\' .ulyz files and transform their contents to HTML.'
   spec.homepage = 'https://github.com/avdgaag/polites'
   spec.license = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.4.0')
