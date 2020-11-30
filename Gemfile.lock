@@ -1,12 +1,12 @@
 PATH
   remote: .
   specs:
-    ulysses (0.1.0)
+    polites (0.1.0)
       nokogiri
       rubyzip
-    ulysses-nanoc (0.1.0)
+    polites-nanoc (0.1.0)
       nanoc (~> 4)
-      ulysses (~> 0.1.0)
+      polites (~> 0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -120,8 +120,8 @@ DEPENDENCIES
   rake (~> 12.0)
   rspec (~> 3.0)
   rubocop
-  ulysses!
-  ulysses-nanoc!
+  polites!
+  polites-nanoc!
   yard
 
 BUNDLED WITH

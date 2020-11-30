@@ -2,8 +2,8 @@
 
 source 'https://rubygems.org'
 
-gemspec name: 'ulysses'
-gemspec name: 'ulysses-nanoc'
+gemspec name: 'polites'
+gemspec name: 'polites-nanoc'
 
 gem 'rake', '~> 12.0'
 gem 'rspec', '~> 3.0'
