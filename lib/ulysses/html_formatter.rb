@@ -27,10 +27,9 @@ module Ulysses
     def call(obj, indent: false, join: '')
       case obj
       when Sheet
-        call(obj.content, indent: true, join: NL) +
-          NL +
-          tag(:ol, NL + footnotes + NL, id: 'footnotes') +
-          NL
+        content = call(obj.content, indent: true, join: NL)
+        content << NL << tag(:ol, NL + footnotes + NL, id: 'footnotes') << NL if @footnotes.any?
+        content
       when ListIndenter::List
         nl = obj.children.first.level.positive? ? NL : ''
         tag_name = case obj.children.first
