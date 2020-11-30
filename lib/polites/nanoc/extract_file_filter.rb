@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../file'
+require 'polites/file'
 
 module Polites
   module Nanoc

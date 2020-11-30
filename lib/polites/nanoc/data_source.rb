@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'pathname'
-require_relative '../settings'
-require_relative '../parser'
-require_relative '../file'
-require_relative '../html_formatter'
+require 'polites/settings'
+require 'polites/parser'
+require 'polites/file'
+require 'polites/html_formatter'
 
 module Polites
   module Nanoc
