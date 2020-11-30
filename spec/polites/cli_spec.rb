@@ -11,7 +11,7 @@ module Polites
 
     it 'prints the version number' do
       cli.call(['-v'])
-      expect(stdout.string).to eql("0.1.0\n")
+      expect(stdout.string).to match(/\d+.\d+.\d+\n/)
     end
 
     it 'prints the help options details' do
