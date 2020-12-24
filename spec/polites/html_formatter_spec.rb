@@ -41,6 +41,21 @@ module Polites
         expect(html_formatter.call(content)).to eql('<p><strong>text1</strong> text2</p>')
       end
 
+      it 'combines multiple consecutive code blocks' do
+        content = [
+          Block::Paragraph.new([Text.new('text')]),
+          Block::CodeBlock.new([Text.new('text 1')], 'css'),
+          Block::CodeBlock.new([Text.new('text 2')], 'css'),
+          Block::Paragraph.new([Text.new('text')])
+        ]
+        expect(html_formatter.call(content, indent: true, join: "\n")).to eql(<<~STR.chomp)
+          <p>text</p>
+          <pre><code class="language-css">text 1
+          text 2</code></pre>
+          <p>text</p>
+        STR
+      end
+
       it 'combines multiple consecutive ordered list items in a single <ol>' do
         content = [
           Block::Paragraph.new([Text.new('text')]),

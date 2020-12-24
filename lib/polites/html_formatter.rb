@@ -5,6 +5,7 @@ require_relative './span'
 require_relative './text'
 require_relative './sheet'
 require_relative './list_indenter'
+require_relative './code_grouper'
 
 module Polites
   # Takes an AST as produced by {Parser} and generates HTML output from it.
@@ -16,6 +17,7 @@ module Polites
     def initialize
       @footnotes = []
       @indenter = ListIndenter.new
+      @code_grouper = CodeGrouper.new
     end
 
     # Apply formatting to the given AST.
@@ -38,7 +40,7 @@ module Polites
                    end
         nl + tag(tag_name, NL + call(obj.children, join: NL) + NL) + nl
       when Array
-        coll = indent ? @indenter.call(obj) : obj
+        coll = indent ? @code_grouper.call(@indenter.call(obj)) : obj
         coll.map { |c| call(c) }.join(join)
       when Block::UnorderedList, Block::OrderedList
         tag(:li, call(obj.children))
