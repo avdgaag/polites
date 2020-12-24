@@ -3,6 +3,7 @@
 ## 0.3.0 - 2020-12-24
 
 - Collapse multiple consecutive code blocks into a single code block
+- Escape HTML entities in code blocks
 
 ## 0.2.0 - 2020-11-30
 

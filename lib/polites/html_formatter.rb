@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'cgi'
+
 require_relative './block'
 require_relative './span'
 require_relative './text'
@@ -61,7 +63,7 @@ module Polites
       when Block::Blockquote
         tag(:blockquote, tag(:p, call(obj.children)))
       when Block::CodeBlock
-        tag(:pre, tag(:code, call(obj.children), class: "language-#{obj.syntax}"))
+        tag(:pre, tag(:code, CGI.escape_html(call(obj.children)), class: "language-#{obj.syntax}"))
       when Block::Divider
         tag(:hr)
       when Span::Strong

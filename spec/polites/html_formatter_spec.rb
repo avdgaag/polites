@@ -142,6 +142,11 @@ module Polites
         expect(html_formatter.call(content)).to eql('<pre><code class="language-css">text</code></pre>')
       end
 
+      it 'escapes HTML characters in code blocks' do
+        content = Block::CodeBlock.new([Text.new('<%= example %>')], 'erb')
+        expect(html_formatter.call(content)).to eql('<pre><code class="language-erb">&lt;%= example %&gt;</code></pre>')
+      end
+
       it 'formats an unordered list as <li>' do
         content = Block::UnorderedList.new([Text.new('text')], 0)
         expect(html_formatter.call(content)).to eql('<li>text</li>')
