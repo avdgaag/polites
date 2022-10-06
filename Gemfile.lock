@@ -6,13 +6,13 @@ PATH
       rubyzip
     polites-nanoc (0.3.0)
       nanoc (~> 4)
-      polites (~> 0.3.0)
+      polites (= 0.3.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.1)
     colored (1.2)
     concurrent-ruby (1.1.7)
@@ -69,7 +69,7 @@ GEM
       ast (~> 2.4.1)
     pastel (0.8.0)
       tty-color (~> 0.5)
-    public_suffix (4.0.6)
+    public_suffix (4.0.7)
     rainbow (3.0.0)
     rake (12.3.3)
     ref (2.0.0)
